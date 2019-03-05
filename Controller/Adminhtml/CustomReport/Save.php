@@ -3,7 +3,7 @@ namespace DEG\CustomReports\Controller\Adminhtml\CustomReport;
 
 use Magento\Backend\App\Action;
 use DEG\CustomReports\Model\Page;
-use Magento\Framework\App\Request\DataPersistorInterface;
+use DEG\CustomReports\Api\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
             
 class Save extends \Magento\Backend\App\Action
