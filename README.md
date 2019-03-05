@@ -1,3 +1,7 @@
+# Fork for Magento v2.0.x support
+
+Original Readme:
+
 # DEG Custom Reports
 
 This module was inspired by the Magento 1 extension for custom reports (https://github.com/kalenjordan/custom-reports).  Thank you to Kalen Jordan and all who had contributed to that project.
