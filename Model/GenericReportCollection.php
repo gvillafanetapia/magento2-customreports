@@ -47,4 +47,21 @@ class GenericReportCollection extends \Magento\Framework\Data\Collection\Abstrac
 
     }
 
+    /**
+     * Render sql select orders
+     *
+     * @return  $this
+     */
+    protected function _renderOrders()
+    {
+        if (!$this->_isOrdersRendered) {
+            foreach ($this->_orders as $field => $direction) {
+                $this->_select->order(new \Zend_Db_Expr('\''. $field . '\' ' . $direction));
+            }
+            $this->_isOrdersRendered = true;
+        }
+
+        return $this;
+    }
+
 }
