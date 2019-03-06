@@ -87,4 +87,27 @@ class Grid extends \Magento\Backend\Block\Widget\Grid
         $exportBlock->lazyPrepareLayout();
         return $this;
     }
+
+    /**
+     * Retrieve grid
+     *
+     * @param string $paramName
+     * @param mixed $default
+     * @return mixed
+     */
+    public function getParam($paramName, $default = null)
+    {
+        $sessionParamName = $this->getId() . $paramName;
+        if ($this->getRequest()->has($paramName)) {
+            $param = urldecode($this->getRequest()->getParam($paramName));
+            if ($this->_saveParametersInSession) {
+                $this->_backendSession->setData($sessionParamName, $param);
+            }
+            return $param;
+        } elseif ($this->_saveParametersInSession && ($param = $this->_backendSession->getData($sessionParamName))) {
+            return $param;
+        }
+
+        return $default;
+    }
 }
